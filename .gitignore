@@ -1,0 +1,17 @@
+.classpath
+.project
+.settings/
+.gradle/
+build/
+target/
+bin/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+/logs/
+/tmp/
+/**/logs/
+/**/tmp/
+/**/mvn

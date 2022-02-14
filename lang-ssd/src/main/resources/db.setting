@@ -1,0 +1,17 @@
+wsUrl = http://coding.sumslack.com/send-print
+[default]
+url = jdbc:mysql://127.0.0.1:3306/gjk_eform
+user = dev
+pass = nb123456
+#showSql = false
+#formatSql = false
+#showParams = true
+# sqlLevel = info
+[macro]
+url = jdbc:mysql://127.0.0.1:3306/gjk_macro_deyong_dev
+user = dev
+pass = nb123456
+[datacoding]
+url = jdbc:mysql://127.0.0.1:3306/gjk_eform
+user = dev
+pass = nb123456

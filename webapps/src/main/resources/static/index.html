@@ -1,0 +1,113 @@
+<!doctype html>
+<head>
+    <title>代码编辑器 - 森浦数据处理语言</title>
+    <meta charset="utf-8" />
+    <!-- bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/idea.css">
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/addon/hint/show-hint.js"></script>
+    <link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="codemirror/addon/lint/lint.css">
+    <script src="codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="codemirror/addon/lint/lint.js"></script>
+    <script src="codemirror/mode/ssd/ssd.js"></script>
+    <style>
+        .CodeMirror {
+            border: 1px solid #eee;
+            height: auto;
+        }
+        .m10 {
+            margin:10px;
+        }
+        h2{
+            font-size:22px;
+            color:darkslategrey;
+        }
+        body {
+            overflow: hidden;
+        }
+        main {
+            margin-top:25px;
+        }
+        .cm-strong { font-size: 140%; }
+        .log-result{
+            height:100px;
+            border: 1px solid #eee;
+            color:black;
+            font-size:14px;
+            line-height: 20px;
+            overflow-x:hidden;
+            overflow-y: auto;
+            padding:4px 6px;
+        }
+        .result-close {
+            margin-left: -12px;
+            margin-top: 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container-fiuled m10">
+        <h2>
+            <div class="position-relative" style="width:180px;">森浦代码编辑器
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:12px;">ss语言</span></div></h2>
+        <div class="row justify-content-end" style="margin-bottom: 5px;">
+            <div class="col-auto align-self-end">
+                <!-- <button type="button" class="btn btn-sm btn-secondary" onclick="validation()">语法检查</button> -->
+                <div class="btn-group input-group-sm">
+                        <span class="input-group-text" id="basic-addon1" style="border:0px;background-color: #fff;">外部注入变量：</span>
+                        <input type="text" class="form-control" value='{"token":"admin"}' aria-describedby="basic-addon1" id="context_vars">
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        文档
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" target="_blank" href="http://doc.sumslack.com/web/#/4?page_id=362">JsonPath语法</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="http://doc.sumslack.com/web/#/4?page_id=356">xPath语法</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="http://doc.sumslack.com/web/#/4?page_id=365">正则语法</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" href="http://doc.sumslack.com/web/#/4?page_id=363">SQL语法</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Demos
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="loadDemo('base')">基础语法</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="loadDemo('dataset')">数据集操作</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="loadDemo('parse')">数据解析</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-danger" onclick="run()">运行(Ctrl+R)</button>
+                </div>
+            </div>
+        </div>
+        <div class="m10 position-relative">
+           <div id="code" name="code">
+
+           </div>
+            <span class="position-absolute top-0 start-50 translate-middle badge bg-info">
+             欢迎使用ss语言
+            </span>
+        </div>
+        <div class="m10 log-result">
+            <ul id="log_result" class="list-unstyled">
+
+            </ul>
+        </div>
+        <script type="text/javascript" src="js/coding.js"></script>
+    </div>
+</main>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

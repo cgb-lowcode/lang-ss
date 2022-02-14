@@ -1,0 +1,37 @@
+# 开发环境配置
+server:
+  # 服务端口
+  port: 7778
+  servlet:
+    # 项目contextPath
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size:  200MB
+      max-request-size:  200MB
+  resources:
+    cache:
+      period: 0
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /css/**,/js/**
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
